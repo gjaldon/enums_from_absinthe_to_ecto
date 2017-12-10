@@ -4,6 +4,7 @@ defmodule EnumsFromAbsintheToEcto.Schema do
   """
 
   use Absinthe.Schema
+  alias EnumsFromAbsintheToEcto.OrderResolver
 
   enum :order_status do
     value :processing
@@ -13,5 +14,11 @@ defmodule EnumsFromAbsintheToEcto.Schema do
 
   object :order do
     field :status, :order_status
+  end
+
+  query do
+    field :order, :order do
+      resolve &OrderResolver.find/3
+    end
   end
 end
