@@ -21,4 +21,15 @@ defmodule EnumsFromAbsintheToEcto.Schema do
       resolve &OrderResolver.find/3
     end
   end
+
+  input_object :add_order_input do
+    field :status, :order_status
+  end
+
+  mutation do
+    field :add_order, :order do
+      arg :input, :add_order_input
+      resolve &OrderResolver.add_order/3
+    end
+  end
 end

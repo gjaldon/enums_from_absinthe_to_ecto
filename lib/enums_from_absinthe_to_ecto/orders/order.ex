@@ -14,7 +14,7 @@ defmodule EnumsFromAbsintheToEcto.Order do
   @doc false
   def changeset(%Order{} = order, attrs) do
     order
-    |> cast(attrs, [])
-    |> validate_required([])
+    |> cast(attrs, [:status])
+    |> validate_required([:status])
   end
 end
