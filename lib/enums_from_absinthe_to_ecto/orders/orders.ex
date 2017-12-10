@@ -8,7 +8,7 @@ defmodule EnumsFromAbsintheToEcto.Orders do
 
   def create_order(args) do
     %Order{}
-    |> Order.unit_changeset(args)
+    |> Order.changeset(args)
     |> Repo.insert()
   end
 end
